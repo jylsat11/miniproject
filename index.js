@@ -27,6 +27,24 @@ async function insertCategoriesFilter() {
         select.append(option);
     })
 }
+
+async function getFilteredArticles() {
+    let response = await fetch(`${SERVER_URL}/blog/article/`);
+    let data = await response.json(); // 여기도 꼭 await 를 해주어야 함
+    return data;
+  }
+  
+  async function insertFilteredArticle() {
+      let articles = await getFilteredArticles();
+      articles.forEach((article) => {
+          document.body.insertAdjacentHTML('beforeEnd', `
+              <div id="${article.id}">
+                  <h1 onclick="showContentModal(event)">${article.title}</h1>
+              </div>
+          `)
+      })
+  }
+  
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
