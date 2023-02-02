@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="index.css">
+    <title>타이틀</title>
+</head>
+<body>
+    <div id="modal">
+        <div id="item">
+            게시글 작성페이지
+            <form id="form">
+                <input name="title" placeholder="제목">
+                <input name="content" placeholder="내용">
+                <input type="file" name="image">
+                <select id="category" name="category">
+                    <option value="">카테고리</option>
+                </select>
+            </form>
+            <button onclick ="closeModal()">창닫기</button>
+            <button onclick ="submitArticle()">글등록</button>
+        </div>
+    </div>
+    <div id="contentModal">
+        <div id="item1">
+            게시글 상세페이지
+        </div>
+    </div>
+    <button onclick="showModal()">글쓰기</button>
+    <select id="category1" name="category1">
+        <option value="">카테고리</option>
+    </select>
+</body>
+<script src="index.js"></script>
+</html>
